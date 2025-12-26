@@ -16,8 +16,12 @@ jobs:
         with:
           node-version: 20
 
-      - run: npm install
+      - name: Install dependencies
+        run: npm install
+        working-directory: progress-bot
 
-      - run: node bot.js
+      - name: Run bot
+        run: node bot.js
+        working-directory: progress-bot
         env:
           TOKEN: ${{ secrets.DISCORD_TOKEN }}
